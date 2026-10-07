@@ -1,0 +1,31 @@
+{
+  "features": [
+    "loan_amount_missing",
+    "Credit Score",
+    "credit_score_bin",
+    "lti",
+    "is_long_term",
+    "Current Loan Amount",
+    "score_band_excellent",
+    "dti",
+    "longterm_x_renter",
+    "debt_to_loan",
+    "credit_util",
+    "income_bin",
+    "Annual Income",
+    "is_mortgage",
+    "balance_to_income",
+    "score_band_fair",
+    "is_renter",
+    "log_max_open_credit",
+    "Years of Credit History",
+    "short_tenure_x_longterm",
+    "credit_score_missing",
+    "score_band_poor",
+    "Months since last delinquent",
+    "Maximum Open Credit",
+    "purpose_business"
+  ],
+  "target": "Default",
+  "tier": "standard"
+}

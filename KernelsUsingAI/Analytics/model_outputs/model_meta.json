@@ -1,0 +1,42 @@
+{
+  "best_model": "gradient_boosting",
+  "threshold": 0.27499999999999997,
+  "features": [
+    "loan_amount_missing",
+    "Credit Score",
+    "credit_score_bin",
+    "lti",
+    "is_long_term",
+    "Current Loan Amount",
+    "score_band_excellent",
+    "dti",
+    "longterm_x_renter",
+    "debt_to_loan",
+    "credit_util",
+    "income_bin",
+    "Annual Income",
+    "is_mortgage",
+    "balance_to_income",
+    "score_band_fair",
+    "is_renter",
+    "log_max_open_credit",
+    "Years of Credit History",
+    "short_tenure_x_longterm",
+    "credit_score_missing",
+    "score_band_poor",
+    "Months since last delinquent",
+    "Maximum Open Credit",
+    "purpose_business"
+  ],
+  "val_metrics": {
+    "model": "gradient_boosting",
+    "roc_auc": 0.7262045613308744,
+    "pr_auc": 0.4692339596251106,
+    "accuracy": 0.7335365853658536,
+    "precision": 0.5608628659476117,
+    "recall": 0.1607773851590106,
+    "f1": 0.2499141778235496,
+    "brier": 0.17458496988477845
+  },
+  "note": "CV skipped for runtime; use val metrics as primary. Re-run notebook for full 5-fold CV."
+}

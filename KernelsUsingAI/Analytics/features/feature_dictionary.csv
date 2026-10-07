@@ -1,0 +1,64 @@
+feature,family,description,dtype,source
+job_years,ordinal,Years in current job mapped to 0-10,float,Years in current job
+job_years_missing,missing_flag,1 if job tenure missing,int,Years in current job
+is_short_tenure,binary_flag,1 if job tenure <= 1 year,int,job_years
+credit_score_missing,missing_flag,1 if Credit Score is missing,int,Credit Score
+annual_income_missing,missing_flag,1 if Annual Income is missing,int,Annual Income
+loan_amount_missing,missing_flag,1 if Current Loan Amount is missing,int,Current Loan Amount
+months_delinquent_missing,missing_flag,1 if Months since last delinquent is missing,int,Months since last delinquent
+bankruptcies_missing,missing_flag,1 if Bankruptcies is missing,int,Bankruptcies
+max_open_credit_missing,missing_flag,1 if Maximum Open Credit is missing,int,Maximum Open Credit
+dti,ratio,"(Monthly Debt x 12) / Annual Income, clipped at 99.5th pct",float,"Monthly Debt, Annual Income"
+lti,ratio,"Current Loan Amount / Annual Income, clipped at 99.5th pct",float,"Current Loan Amount, Annual Income"
+credit_util,ratio,"Current Credit Balance / Max Open Credit, capped at 2.0",float,"Current Credit Balance, Maximum Open Credit"
+debt_to_loan,ratio,Monthly Debt / Current Loan Amount,float,"Monthly Debt, Current Loan Amount"
+balance_to_income,ratio,Current Credit Balance / Annual Income,float,"Current Credit Balance, Annual Income"
+credit_headroom,derived,Max Open Credit - Current Credit Balance,float,"Maximum Open Credit, Current Credit Balance"
+has_delinquency_hist,binary_flag,1 if Months since last delinquent is present,int,Months since last delinquent
+has_credit_problems,binary_flag,1 if Number of Credit Problems > 0,int,Number of Credit Problems
+has_bankruptcy,binary_flag,1 if Bankruptcies > 0,int,Bankruptcies
+has_tax_lien,binary_flag,1 if Tax Liens > 0,int,Tax Liens
+has_any_public_record,binary_flag,1 if any of credit problems / bankruptcy / tax lien,int,"has_credit_problems, has_bankruptcy, has_tax_lien"
+credit_problem_count,count,Sum of credit problems + bankruptcies + tax liens,float,"Number of Credit Problems, Bankruptcies, Tax Liens"
+is_long_term,binary_flag,1 if Term = Long Term,int,Term
+is_renter,binary_flag,1 if Home Ownership = Rent,int,Home Ownership
+is_mortgage,binary_flag,1 if Home Ownership = Home Mortgage,int,Home Ownership
+is_homeowner,binary_flag,1 if Home Ownership = Own Home,int,Home Ownership
+purpose_debt_consolidation,binary_flag,1 if purpose_group = debt_consolidation,int,purpose_group
+purpose_home,binary_flag,1 if purpose_group = home,int,purpose_group
+purpose_business,binary_flag,1 if purpose_group = business,int,purpose_group
+purpose_discretionary,binary_flag,1 if purpose_group = discretionary,int,purpose_group
+purpose_medical,binary_flag,1 if purpose_group = medical,int,purpose_group
+purpose_vehicle,binary_flag,1 if purpose_group = vehicle,int,purpose_group
+purpose_other,binary_flag,1 if purpose_group = other,int,purpose_group
+credit_score_bin,bin,Credit Score quintile code (0-4),float,Credit Score
+income_bin,bin,Annual Income quintile code (0-4),float,Annual Income
+loan_amount_bin,bin,Loan Amount quintile code (0-4),float,Current Loan Amount
+dti_bin,bin,DTI quintile code (0-4),float,dti
+util_bin,bin,Credit utilisation quintile code (0-4),float,credit_util
+score_band_poor,binary_flag,1 if credit_score_band = poor,int,credit_score_band
+score_band_fair,binary_flag,1 if credit_score_band = fair,int,credit_score_band
+score_band_good,binary_flag,1 if credit_score_band = good,int,credit_score_band
+score_band_excellent,binary_flag,1 if credit_score_band = excellent,int,credit_score_band
+score_band_missing,binary_flag,1 if credit_score_band = missing,int,credit_score_band
+longterm_x_renter,interaction,Long-term loan AND renter,int,"is_long_term, is_renter"
+longterm_x_lowscore,interaction,Long-term loan AND poor credit band,int,"is_long_term, score_band_poor"
+high_dti_x_renter,interaction,Above-median DTI AND renter,int,"dti, is_renter"
+short_tenure_x_longterm,interaction,Short job tenure AND long-term loan,int,"is_short_tenure, is_long_term"
+log_annual_income,transform,log1p(Annual Income),float,Annual Income
+log_loan_amount,transform,log1p(Current Loan Amount),float,Current Loan Amount
+log_monthly_debt,transform,log1p(Monthly Debt),float,Monthly Debt
+log_credit_balance,transform,log1p(Current Credit Balance),float,Current Credit Balance
+log_max_open_credit,transform,log1p(Maximum Open Credit),float,Maximum Open Credit
+Current Loan Amount,raw_numeric,Cleaned raw column: Current Loan Amount,float,Current Loan Amount
+Credit Score,raw_numeric,Cleaned raw column: Credit Score,float,Credit Score
+Annual Income,raw_numeric,Cleaned raw column: Annual Income,float,Annual Income
+Monthly Debt,raw_numeric,Cleaned raw column: Monthly Debt,float,Monthly Debt
+Years of Credit History,raw_numeric,Cleaned raw column: Years of Credit History,float,Years of Credit History
+Months since last delinquent,raw_numeric,Cleaned raw column: Months since last delinquent,float,Months since last delinquent
+Number of Open Accounts,raw_numeric,Cleaned raw column: Number of Open Accounts,float,Number of Open Accounts
+Number of Credit Problems,raw_numeric,Cleaned raw column: Number of Credit Problems,float,Number of Credit Problems
+Current Credit Balance,raw_numeric,Cleaned raw column: Current Credit Balance,float,Current Credit Balance
+Maximum Open Credit,raw_numeric,Cleaned raw column: Maximum Open Credit,float,Maximum Open Credit
+Bankruptcies,raw_numeric,Cleaned raw column: Bankruptcies,float,Bankruptcies
+Tax Liens,raw_numeric,Cleaned raw column: Tax Liens,float,Tax Liens

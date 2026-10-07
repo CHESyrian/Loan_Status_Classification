@@ -1,0 +1,55 @@
+{
+  "base_model": "gradient_boosting",
+  "calibration": "sigmoid",
+  "threshold_primary": 0.175,
+  "threshold_max_f1": 0.27499999999999997,
+  "val_calibration_metrics": [
+    {
+      "model": "sigmoid",
+      "roc_auc": 0.7260675637304392,
+      "pr_auc": 0.4675954934860282,
+      "brier": 0.17465323707149222
+    },
+    {
+      "model": "isotonic",
+      "roc_auc": 0.7257962379783653,
+      "pr_auc": 0.4651737528567895,
+      "brier": 0.17476651241885285
+    },
+    {
+      "model": "base",
+      "roc_auc": 0.725417585502724,
+      "pr_auc": 0.4677488201414124,
+      "brier": 0.17478048395322174
+    }
+  ],
+  "features": [
+    "loan_amount_missing",
+    "Credit Score",
+    "credit_score_bin",
+    "lti",
+    "is_long_term",
+    "Current Loan Amount",
+    "score_band_excellent",
+    "dti",
+    "longterm_x_renter",
+    "debt_to_loan",
+    "credit_util",
+    "income_bin",
+    "Annual Income",
+    "is_mortgage",
+    "balance_to_income",
+    "score_band_fair",
+    "is_renter",
+    "log_max_open_credit",
+    "Years of Credit History",
+    "short_tenure_x_longterm",
+    "credit_score_missing",
+    "score_band_poor",
+    "Months since last delinquent",
+    "Maximum Open Credit",
+    "purpose_business"
+  ],
+  "fp_cost_default": 1.0,
+  "fn_cost_default": 5.0
+}

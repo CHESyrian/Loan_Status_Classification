@@ -1,0 +1,65 @@
+{
+  "best_model": "gbm_default",
+  "threshold": 0.27499999999999997,
+  "val_roc_auc": 0.725417585502724,
+  "val_pr_auc": 0.4677488201414124,
+  "best_params": {
+    "n_estimators": 80,
+    "max_depth": 4,
+    "learning_rate": 0.1,
+    "subsample": 0.8
+  },
+  "search_design": {
+    "search_sample_size": 15000,
+    "cv_folds": 2,
+    "n_iter_rf": 5,
+    "n_iter_gbm": 5,
+    "rf_best_cv_auc": 0.7089315703580525,
+    "rf_best_params": {
+      "n_estimators": 200,
+      "min_samples_leaf": 50,
+      "max_features": "sqrt",
+      "max_depth": null
+    },
+    "gbm_best_cv_auc": 0.7054449045995035,
+    "gbm_best_params": {
+      "subsample": 0.7,
+      "n_estimators": 80,
+      "min_samples_leaf": 80,
+      "max_depth": 2,
+      "learning_rate": 0.1
+    },
+    "lr_best_cv_auc": 0.7081519655019087,
+    "lr_best_params": {
+      "C": 0.01
+    },
+    "note": "Search on 15k stratified sample; validation and final refit on full data."
+  },
+  "features": [
+    "loan_amount_missing",
+    "Credit Score",
+    "credit_score_bin",
+    "lti",
+    "is_long_term",
+    "Current Loan Amount",
+    "score_band_excellent",
+    "dti",
+    "longterm_x_renter",
+    "debt_to_loan",
+    "credit_util",
+    "income_bin",
+    "Annual Income",
+    "is_mortgage",
+    "balance_to_income",
+    "score_band_fair",
+    "is_renter",
+    "log_max_open_credit",
+    "Years of Credit History",
+    "short_tenure_x_longterm",
+    "credit_score_missing",
+    "score_band_poor",
+    "Months since last delinquent",
+    "Maximum Open Credit",
+    "purpose_business"
+  ]
+}

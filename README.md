@@ -20,24 +20,80 @@ End-to-end analytics project for predicting **loan default** (Charged Off vs Ful
 ## 2. Repository layout
 
 ```
-artifacts/
-├── Datasets/
-│   ├── credit_train.csv          # Labeled training data
-│   └── credit_test.csv           # Unlabeled score set
-├── Kernels/
-│   └── Analytics/
-│       ├── 01_credit_train_eda.ipynb
-│       ├── 02_credit_feature_engineering.ipynb
-│       ├── 03_credit_feature_selection.ipynb
-│       ├── 04_credit_modelling.ipynb
-│       ├── 05_model_card.ipynb
-│       ├── 06_calibration_and_threshold.ipynb
-│       ├── 07_error_analysis.ipynb
-│       ├── score_loans.py        # Production scoring CLI
-│       ├── features/             # Engineered matrices + selection artifacts
-│       └── model_outputs/        # Models, metrics, predictions, plots
-├── requirements.txt
-└── README.md
+Loan_Status_Classification/
+├── Datasets
+|    ├── credit_test.csv
+|    ├── credit_train.csv
+|    ├── final_credit_train.csv
+|    └── Loan_default.csv
+├── KernelsUsingAI
+|    ├── Analytics/
+|    |    ├── 01_credit_train_eda.ipynb
+|    |    ├── 02_credit_feature_engineering.ipynb
+|    |    ├── 03_credit_feature_selection.ipynb
+|    |    ├── 04_credit_modelling.ipynb
+|    |    ├── 05_model_card.ipynb
+|    |    ├── 06_calibration_and_threshold.ipynb
+|    |    ├── 07_error_analysis.ipynb
+|    |    ├── features/
+|    |    |    ├── credit_train_features.csv
+|    |    |    ├── credit_train_features.parquet
+|    |    |    ├── feature_dictionary.csv
+|    |    |    ├── feature_selection_ranking.csv
+|    |    |    ├── model_feature_list.json
+|    |    |    ├── selected_feature_sets.json
+|    |    |    ├── selected_features_standard.json
+|    |    |    └── selection_plots
+|    |    |        ├── consensus_rank.png
+|    |    |        ├── corr_heatmap.png
+|    |    |        ├── diagnostic_cv.png
+|    |    |        ├── rf_importance.png
+|    |    |        └── univariate_ranks.png
+|    |    ├── model_outputs
+|    |    |    ├── best_model_calibrated.pkl
+|    |    |    ├── best_model_gradient_boosting.pkl
+|    |    |    ├── best_model_hparam_gbm_default.pkl
+|    |    |    ├── calibration_metrics.csv
+|    |    |    ├── calibration_threshold_meta.json
+|    |    |    ├── cost_curve_fn5_fp1.csv
+|    |    |    ├── error_confident_fn.csv
+|    |    |    ├── error_confident_fp.csv
+|    |    |    ├── error_segment_analysis.csv
+|    |    |    ├── hparam_gbm_search.csv
+|    |    |    ├── hparam_lr_search.csv
+|    |    |    ├── hparam_rf_search.csv
+|    |    |    ├── hparam_search_summary.json
+|    |    |    ├── hparam_test_predictions.csv
+|    |    |    ├── hparam_threshold_sweep.csv
+|    |    |    ├── hparam_val_metrics.csv
+|    |    |    ├── model_comparison_val.csv
+|    |    |    ├── model_meta.json
+|    |    |    ├── plots
+|    |    |    |    ├── calibration_comparison.png
+|    |    |    |    ├── calibration.png
+|    |    |    |    ├── confusion_matrices.png
+|    |    |    |    ├── cost_threshold.png
+|    |    |    |    ├── error_confusion.png
+|    |    |    |    ├── error_fn_by_segment.png
+|    |    |    |    ├── error_score_by_type.png
+|    |    |    |    ├── roc_pr_curves.png
+|    |    |    |    └── threshold_sweep.png
+|    |    |    ├── scored_test_production.csv
+|    |    |    ├── test_predictions.csv
+|    |    |    └── threshold_sweep.csv
+|    |    └── score_loans.py
+|    └── credit_pipeline
+|        ├── outputs
+|        |    ├── best_model_gradient_boosting.pkl
+|        |    ├── model_comparison.csv
+|        |    └── test_predictions.csv
+|        ├── pipeline.py
+|        └── README.md
+├── LoanCreditAnalytics.ipynb
+├── LoanDefaultAnalytics.ipynb
+├── README.md
+└── requirements.txt
+
 ```
 
 ---
@@ -197,3 +253,7 @@ The scorer applies the same cleaning and feature engineering, aligns to the Stan
 ## 9. License & contact
 
 Internal analytics package. Adapt thresholds and monitoring to your credit policy before production use.
+
+---
+
+# CreatedBy: `CHESyrian` With Help `Grok`
